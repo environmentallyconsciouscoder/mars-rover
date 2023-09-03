@@ -22,4 +22,18 @@ Please ensure that you have Java and Maven installed on your computer. To run th
 
 ## Test cases
 
+We will use unit tests for specific edge cases and parameterized tests for various test cases to cover a wider range of scenarios in my code
+
+| Test Cases                  | Expections |
+|-----------------------------|:----------:|
+| 1 2 N<br/>LMLMLMLMM         |  1 3 N     |
+| 3 3 E<br/>MMRMMRMRRM        |   5 1 E    |
+
+
+| Edge Cases |    Expections     |
+|------------|:-----------------:|
+| 1.2 3.4 N  |   invalid input   |
+|            |   invalid input   |
+| -1 2 H     |   invalid input   |
+
 ## Approaches
