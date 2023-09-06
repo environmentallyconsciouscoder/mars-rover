@@ -3,9 +3,9 @@ package com.techreturners;
 import java.util.ArrayList;
 
 public class Position {
-    private final char cardinalDirection;
-    private final int yValue;
-    private final int xValue;
+    private char cardinalDirection;
+    private int yValue;
+    private int xValue;
 
     public Position(int xValue, int yValue, char cardinalDirection) {
         this.xValue = xValue;
@@ -23,5 +23,17 @@ public class Position {
 
     public int getxValue() {
         return xValue;
+    }
+
+    public void setCardinalDirection(char cardinalDirection) {
+        this.cardinalDirection = cardinalDirection;
+    }
+
+    public void setYValue(int yValue) {
+        this.yValue = yValue;
+    }
+
+    public void setXValue(int xValue) {
+        this.xValue = xValue;
     }
 }

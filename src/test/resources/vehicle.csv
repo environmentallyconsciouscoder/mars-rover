@@ -1,5 +1,5 @@
 vehicleType, vehicleId, count, cardinalDirection, xAxis, yAxis, plateau,
 mars rover, MR1, 1, N, 1, 2, A
-mars rover, MR2, 2, E, 2, 2, B
-mars rover, MR3, 3, S, 2, 3, C
-mars rover, MR4, 4, W, 2, 4, D
+mars rover, MR2, 2, E, 3, 3, B
+mars rover, MR3, 3, N, 1, 2, C
+mars rover, MR4, 4, E, 3, 3, D
