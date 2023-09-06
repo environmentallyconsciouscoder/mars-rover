@@ -5,6 +5,8 @@ public class Vehicle implements ControlSystem  {
     private final String vehicleId;
     private Position position;
 
+    private static final int MOVE_FORWARD_INCREMENT = 1;
+
     public Vehicle(String vehicleType, String vehicleId, int xValue, int yValue, char convertedChar) {
         this.vehicleType = vehicleType;
         this.vehicleId = vehicleId;
@@ -56,19 +58,19 @@ public class Vehicle implements ControlSystem  {
         int newValue;
         switch (cardinalDirection) {
             case 'N' -> {
-                newValue = vehicle.position.getyValue() + 1;
+                newValue = vehicle.position.getyValue() + MOVE_FORWARD_INCREMENT;
                 vehicle.position.setYValue(newValue);
             }
             case 'E' -> {
-                newValue = vehicle.position.getxValue() + 1;
+                newValue = vehicle.position.getxValue() + MOVE_FORWARD_INCREMENT;
                 vehicle.position.setXValue(newValue);
             }
             case 'W' -> {
-                newValue = vehicle.position.getxValue() - 1;
+                newValue = vehicle.position.getxValue() - MOVE_FORWARD_INCREMENT;
                 vehicle.position.setXValue(newValue);
             }
             case 'S' -> {
-                newValue = vehicle.position.getyValue() - 1;
+                newValue = vehicle.position.getyValue() - MOVE_FORWARD_INCREMENT;
                 vehicle.position.setYValue(newValue);
             }
             default -> System.out.println("Invalid direction");

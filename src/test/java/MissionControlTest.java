@@ -47,7 +47,7 @@ public class MissionControlTest {
 //        System.out.println("test.getPosition().getxValue() " + test.getPosition().getxValue());
 //        System.out.println("test.getPosition().getyValue() " + test.getPosition().getyValue());
 //        System.out.println("test.getPosition().getCardinalDirection() " + test.getPosition().getCardinalDirection());
-//
+////
 //        System.out.println("xValue " + xValue);
 //        System.out.println("yValue " + yValue);
 //        System.out.println("convertedChar " + convertedChar);
