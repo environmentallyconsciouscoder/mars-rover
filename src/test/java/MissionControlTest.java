@@ -53,8 +53,8 @@ public class MissionControlTest {
 //        System.out.println("convertedChar " + convertedChar);
 //        System.out.println("vehicleId " + vehicleId);
 
-        assertEquals(Integer.parseInt(xValue), test.getPosition().getxValue());
-        assertEquals(Integer.parseInt(yValue), test.getPosition().getyValue());
+        assertEquals(Integer.parseInt(xValue), test.getPosition().getXValue());
+        assertEquals(Integer.parseInt(yValue), test.getPosition().getYValue());
         assertEquals(convertedChar, test.getPosition().getCardinalDirection());
     }
 }

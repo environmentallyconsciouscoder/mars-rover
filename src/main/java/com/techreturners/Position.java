@@ -17,11 +17,11 @@ public class Position {
         return cardinalDirection;
     }
 
-    public int getyValue() {
+    public int getYValue() {
         return yValue;
     }
 
-    public int getxValue() {
+    public int getXValue() {
         return xValue;
     }
 

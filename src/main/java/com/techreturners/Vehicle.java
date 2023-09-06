@@ -58,19 +58,19 @@ public class Vehicle implements ControlSystem  {
         int newValue;
         switch (cardinalDirection) {
             case 'N' -> {
-                newValue = vehicle.position.getyValue() + MOVE_FORWARD_INCREMENT;
+                newValue = vehicle.position.getYValue() + MOVE_FORWARD_INCREMENT;
                 vehicle.position.setYValue(newValue);
             }
             case 'E' -> {
-                newValue = vehicle.position.getxValue() + MOVE_FORWARD_INCREMENT;
+                newValue = vehicle.position.getXValue() + MOVE_FORWARD_INCREMENT;
                 vehicle.position.setXValue(newValue);
             }
             case 'W' -> {
-                newValue = vehicle.position.getxValue() - MOVE_FORWARD_INCREMENT;
+                newValue = vehicle.position.getXValue() - MOVE_FORWARD_INCREMENT;
                 vehicle.position.setXValue(newValue);
             }
             case 'S' -> {
-                newValue = vehicle.position.getyValue() - MOVE_FORWARD_INCREMENT;
+                newValue = vehicle.position.getYValue() - MOVE_FORWARD_INCREMENT;
                 vehicle.position.setYValue(newValue);
             }
             default -> System.out.println("Invalid direction");
