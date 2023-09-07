@@ -11,14 +11,10 @@ public class Vehicle implements ControlSystem  {
 
     private static final int MOVE_FORWARD_INCREMENT = 1;
 
-    public Vehicle(String vehicleType, String vehicleId, int xValue, int yValue, char convertedChar) {
+    public Vehicle(String vehicleType, String vehicleId, int xValue, int yValue, char cardinalDirection) {
         this.vehicleType = vehicleType;
         this.vehicleId = vehicleId;
-        this.position = new Position(xValue, yValue, convertedChar);
-    }
-
-    public void setPosition(int xValue, int yValue, char cardinalDirection) {
-        position = new Position(xValue, yValue, cardinalDirection);
+        this.position = new Position(xValue, yValue, cardinalDirection);
     }
 
     public Position getPosition() {
@@ -63,6 +59,8 @@ public class Vehicle implements ControlSystem  {
         switch (cardinalDirection) {
             case 'N' -> {
                 newCoordinateValue = vehicle.position.getYValue() + MOVE_FORWARD_INCREMENT;
+                System.out.println(newCoordinateValue);
+
                 if (isMoveWithinBounds(newCoordinateValue, 'Y')) {
                     vehicle.position.setYValue(newCoordinateValue);
                 }

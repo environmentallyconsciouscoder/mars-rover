@@ -1,7 +1,5 @@
 package com.techreturners;
 
-import java.util.ArrayList;
-
 public class Position {
     private char cardinalDirection;
     private int yValue;
