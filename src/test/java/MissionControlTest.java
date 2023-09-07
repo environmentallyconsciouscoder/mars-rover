@@ -11,7 +11,7 @@ public class MissionControlTest {
     private MissionControl missionControl = new MissionControl();
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/vehicle.csv", numLinesToSkip = 1) // Skip the header row
+    @CsvFileSource(resources = "/vehicles.csv", numLinesToSkip = 1) // Skip the header row
     public void testDeployVehicle(String vehicleType, String vehicleId, String count, String cardinalDirection, String xAxis, String yAxis) {
 
         boolean isNotMoreThanMaxVehicleCount = missionControl.getVehicleCount() < missionControl.getMaxVehicleCount();
@@ -35,7 +35,7 @@ public class MissionControlTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/commands.csv", numLinesToSkip = 1)
-    public void testUpdateCommands(String vehicleId, String command, String xValue, String yValue, String cardinalDirection) {
+    public void testExecuteCommands(String vehicleId, String command, String xValue, String yValue, String cardinalDirection) {
 
         missionControl.executeCommands(vehicleId, command);
 

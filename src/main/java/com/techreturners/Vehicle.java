@@ -1,5 +1,9 @@
 package com.techreturners;
 
+import java.util.Objects;
+
+import static com.techreturners.Plateau.*;
+
 public class Vehicle implements ControlSystem  {
     private final String vehicleType;
     private final String vehicleId;
@@ -55,25 +59,47 @@ public class Vehicle implements ControlSystem  {
 
     @Override
     public void moveForward(Vehicle vehicle, char cardinalDirection) {
-        int newValue;
+        int newCoordinateValue;
         switch (cardinalDirection) {
             case 'N' -> {
-                newValue = vehicle.position.getYValue() + MOVE_FORWARD_INCREMENT;
-                vehicle.position.setYValue(newValue);
+                newCoordinateValue = vehicle.position.getYValue() + MOVE_FORWARD_INCREMENT;
+                if (isMoveWithinBounds(newCoordinateValue, 'Y')) {
+                    vehicle.position.setYValue(newCoordinateValue);
+                }
             }
             case 'E' -> {
-                newValue = vehicle.position.getXValue() + MOVE_FORWARD_INCREMENT;
-                vehicle.position.setXValue(newValue);
+                newCoordinateValue = vehicle.position.getXValue() + MOVE_FORWARD_INCREMENT;
+                if (isMoveWithinBounds(newCoordinateValue, 'X')) {
+                    vehicle.position.setXValue(newCoordinateValue);
+                }
             }
             case 'W' -> {
-                newValue = vehicle.position.getXValue() - MOVE_FORWARD_INCREMENT;
-                vehicle.position.setXValue(newValue);
+                newCoordinateValue = vehicle.position.getXValue() - MOVE_FORWARD_INCREMENT;
+                if (isMoveWithinBounds(newCoordinateValue, 'X')) {
+                    vehicle.position.setXValue(newCoordinateValue);
+                }
             }
             case 'S' -> {
-                newValue = vehicle.position.getYValue() - MOVE_FORWARD_INCREMENT;
-                vehicle.position.setYValue(newValue);
+                newCoordinateValue = vehicle.position.getYValue() - MOVE_FORWARD_INCREMENT;
+                if (isMoveWithinBounds(newCoordinateValue, 'Y')) {
+                    vehicle.position.setYValue(newCoordinateValue);
+                }
             }
             default -> System.out.println("Invalid direction");
         }
+    }
+
+     public boolean isMoveWithinBounds(int newCoordinateValue, char axis) {
+        boolean isWithinBounds = false;
+
+        if (Objects.equals(axis, 'X')) {
+            isWithinBounds = newCoordinateValue >= getMinX() && newCoordinateValue <= getMaxX();
+        } else if (Objects.equals(axis, 'Y')) {
+            isWithinBounds = newCoordinateValue >= getMinY() && newCoordinateValue <= getMaxY();
+        } else {
+            System.out.println("Invalid axis");
+        }
+
+        return isWithinBounds;
     }
 }
