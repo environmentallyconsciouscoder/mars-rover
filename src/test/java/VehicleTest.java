@@ -1,5 +1,8 @@
+import com.techreturners.MissionControl;
 import com.techreturners.Vehicle;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -203,5 +206,22 @@ public class VehicleTest {
         assertEquals(false, isWithinBoundsYAxis);
         assertEquals(false, isWithinBoundsXAxis);
 
+    }
+
+
+    @Test
+    public void testIsThereCollision() {
+        MissionControl missionControl = new MissionControl();
+        boolean isNotMoreThanMaxVehicleCount = missionControl.getVehicleCount() < missionControl.getMaxVehicleCount();
+
+        if (isNotMoreThanMaxVehicleCount) {
+            missionControl.deployVehicle("Mars rover", "MR2", "N", 2, 2);
+            missionControl.deployVehicle("Mars rover", "MR3", "N", 0, 2);
+            missionControl.deployVehicle("Mars rover", "MR4", "N", 3, 2);
+
+            Vehicle vehicle = new Vehicle("mars rover", "MR1", 0, 3, 'N');
+            boolean isThereCollision = vehicle.isThereCollision(vehicle, 3, 'Y');
+            assertEquals(false, isThereCollision);
+        }
     }
 }

@@ -6,4 +6,6 @@ interface ControlSystem {
     void moveForward(Vehicle vehicle, char cardinalDirection);
 
     boolean isMoveWithinBounds(int newCoordinateValue, char axis);
+
+    boolean isThereCollision(Vehicle vehicle, int newCoordinateValue, char axis);
 }

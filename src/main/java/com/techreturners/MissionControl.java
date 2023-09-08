@@ -56,7 +56,6 @@ public class MissionControl {
     }
 
 
-
     private void dataProcessor(String command, Vehicle vehicle) {
         Queue<String> queue = new LinkedList<>();
 

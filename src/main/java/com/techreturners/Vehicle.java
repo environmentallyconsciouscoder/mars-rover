@@ -1,10 +1,11 @@
 package com.techreturners;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 import static com.techreturners.Plateau.*;
 
-public class Vehicle implements ControlSystem  {
+public class Vehicle extends MissionControl implements ControlSystem  {
     private final String vehicleType;
     private final String vehicleId;
     private Position position;
@@ -61,31 +62,53 @@ public class Vehicle implements ControlSystem  {
                 newCoordinateValue = vehicle.position.getYValue() + MOVE_FORWARD_INCREMENT;
                 System.out.println(newCoordinateValue);
 
-                if (isMoveWithinBounds(newCoordinateValue, 'Y')) {
+                if (isMoveWithinBounds(newCoordinateValue, 'Y') && !isThereCollision(vehicle, newCoordinateValue, 'Y')) {
                     vehicle.position.setYValue(newCoordinateValue);
                 }
             }
             case 'E' -> {
                 newCoordinateValue = vehicle.position.getXValue() + MOVE_FORWARD_INCREMENT;
-                if (isMoveWithinBounds(newCoordinateValue, 'X')) {
+                if (isMoveWithinBounds(newCoordinateValue, 'X') && !isThereCollision(vehicle, newCoordinateValue, 'X')) {
                     vehicle.position.setXValue(newCoordinateValue);
                 }
             }
             case 'W' -> {
                 newCoordinateValue = vehicle.position.getXValue() - MOVE_FORWARD_INCREMENT;
-                if (isMoveWithinBounds(newCoordinateValue, 'X')) {
+                if (isMoveWithinBounds(newCoordinateValue, 'X') && !isThereCollision(vehicle, newCoordinateValue, 'X')) {
                     vehicle.position.setXValue(newCoordinateValue);
                 }
             }
             case 'S' -> {
                 newCoordinateValue = vehicle.position.getYValue() - MOVE_FORWARD_INCREMENT;
-                if (isMoveWithinBounds(newCoordinateValue, 'Y')) {
+                if (isMoveWithinBounds(newCoordinateValue, 'Y') && !isThereCollision(vehicle, newCoordinateValue, 'Y')) {
                     vehicle.position.setYValue(newCoordinateValue);
                 }
             }
             default -> System.out.println("Invalid direction");
         }
     }
+
+    @Override
+    public boolean isThereCollision(Vehicle vehicle, int newCoordinateValue, char axis) {
+
+        int vehicleYValue = axis == 'Y' ? newCoordinateValue: vehicle.getPosition().getYValue();
+        int vehicleXValue = axis == 'X' ? newCoordinateValue: vehicle.getPosition().getXValue();
+        String vehicleId = vehicle.getVehicleId();
+
+        HashMap<String, Object> allDeployedVehicles = getDeployedVehicles();
+        boolean result = false;
+        for (String key : allDeployedVehicles.keySet()) {
+            if (!Objects.equals(key, vehicleId)) {
+                Object value = allDeployedVehicles.get(key);
+                if (value instanceof Vehicle otherVehicle) {
+                    if (vehicleXValue == otherVehicle.getPosition().getXValue() && vehicleYValue == otherVehicle.getPosition().getYValue()) {
+                        result = true;
+                    }
+                }
+            }
+        }
+         return result;
+     }
 
      public boolean isMoveWithinBounds(int newCoordinateValue, char axis) {
         boolean isWithinBounds = false;

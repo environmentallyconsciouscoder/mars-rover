@@ -8,12 +8,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MissionControlTest {
 
-    private MissionControl missionControl = new MissionControl();
-
     @ParameterizedTest
     @CsvFileSource(resources = "/vehicles.csv", numLinesToSkip = 1) // Skip the header row
     public void testDeployVehicle(String vehicleType, String vehicleId, String count, String cardinalDirection, String xAxis, String yAxis) {
 
+        MissionControl missionControl = new MissionControl();
         boolean isNotMoreThanMaxVehicleCount = missionControl.getVehicleCount() < missionControl.getMaxVehicleCount();
         int xValue = Integer.parseInt(xAxis);
         int yValue = Integer.parseInt(yAxis);
@@ -36,22 +35,16 @@ public class MissionControlTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/commands.csv", numLinesToSkip = 1)
     public void testExecuteCommands(String vehicleId, String command, String xValue, String yValue, String cardinalDirection) {
-
+        MissionControl missionControl = new MissionControl();
         missionControl.executeCommands(vehicleId, command);
 
         HashMap<String, Object> deployments = missionControl.getDeployedVehicles();
         Vehicle test = (Vehicle) deployments.get(vehicleId);
         char convertedChar = cardinalDirection.charAt(0);
 
-//        System.out.println("test.getVehicleId() " + test.getVehicleId());
-//        System.out.println("test.getPosition().getxValue() " + test.getPosition().getxValue());
-//        System.out.println("test.getPosition().getyValue() " + test.getPosition().getyValue());
-//        System.out.println("test.getPosition().getCardinalDirection() " + test.getPosition().getCardinalDirection());
-////
-//        System.out.println("xValue " + xValue);
-//        System.out.println("yValue " + yValue);
-//        System.out.println("convertedChar " + convertedChar);
-//        System.out.println("vehicleId " + vehicleId);
+        System.out.println("test.getPosition().getXValue() " + test.getPosition().getXValue());
+        System.out.println("test.getPosition().getYValue() " + test.getPosition().getYValue());
+        System.out.println("test.getPosition().getCardinalDirection() " + test.getPosition().getCardinalDirection());
 
         assertEquals(Integer.parseInt(xValue), test.getPosition().getXValue());
         assertEquals(Integer.parseInt(yValue), test.getPosition().getYValue());
