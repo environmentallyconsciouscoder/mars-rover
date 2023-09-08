@@ -8,11 +8,11 @@
 
 ## Project description
 
-Our MVP includes the ability to rotate the Land Rover by 90 degrees to the left or right, move it forward by one grid, and display its position on a grid in the terminal, with input values fed into unit tests.
+Our MVP includes the ability to rotate the Land Rover by 90 degrees to the left or right, move it forward by one grid unit, check for collisions with other rovers, and also verify if the rover is off the edge before allowing it to move forward, with input values provided for unit tests.
 
 We assume that the plateau is a square or rectangular grid.
 
-In the future, we plan to support different shaped plateaus, allow input via a console application, and enable input via a file.
+In the future, we plan to support plateaus of different shapes, allow input via a console application, and enable input via a file. 
 
 The project is developed using Java, JUnit 5, and Maven.
 
@@ -29,6 +29,7 @@ We will use unit tests for specific edge cases and parameterized tests for vario
 | 1 2 N<br/>LMLMLMLMM         |  1 3 N     |
 | 3 3 E<br/>MMRMMRMRRM        |   5 1 E    |
 
+I didn't have enough time to write tests for edge cases. 
 
 | Edge Cases |    Expections     |
 |------------|:-----------------:|
