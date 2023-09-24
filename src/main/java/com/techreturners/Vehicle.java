@@ -7,7 +7,7 @@ import static com.techreturners.MissionControl.getDeployedVehicles;
 import static com.techreturners.Plateau.*;
 
 //public class Vehicle extends MissionControl implements ControlSystem  {
-public class Vehicle implements ControlSystem  {
+public class Vehicle extends Plateau implements ControlSystem  {
 
     private final String vehicleType;
     private final String vehicleId;
@@ -16,6 +16,7 @@ public class Vehicle implements ControlSystem  {
     private static final int MOVE_FORWARD_INCREMENT = 1;
 
     public Vehicle(String vehicleType, String vehicleId, int xValue, int yValue, char cardinalDirection) {
+        super(0, 5, 0, 5);
         this.vehicleType = vehicleType;
         this.vehicleId = vehicleId;
         this.position = new Position(xValue, yValue, cardinalDirection);
