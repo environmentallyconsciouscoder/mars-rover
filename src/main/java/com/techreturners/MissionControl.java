@@ -25,7 +25,7 @@ public class MissionControl {
         }
     }
 
-    public HashMap<String, Object> getDeployedVehicles() {
+    public static HashMap<String, Object> getDeployedVehicles() {
         return deployments;
     }
 

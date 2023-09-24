@@ -3,9 +3,12 @@ package com.techreturners;
 import java.util.HashMap;
 import java.util.Objects;
 
+import static com.techreturners.MissionControl.getDeployedVehicles;
 import static com.techreturners.Plateau.*;
 
-public class Vehicle extends MissionControl implements ControlSystem  {
+//public class Vehicle extends MissionControl implements ControlSystem  {
+public class Vehicle implements ControlSystem  {
+
     private final String vehicleType;
     private final String vehicleId;
     private Position position;
