@@ -1,25 +1,27 @@
 package com.techreturners;
 
+import com.techreturners.plateau.Plateau;
+
 import java.util.HashMap;
 import java.util.Objects;
 
 import static com.techreturners.MissionControl.getDeployedVehicles;
-import static com.techreturners.Plateau.*;
 
-//public class Vehicle extends MissionControl implements ControlSystem  {
-public class Vehicle extends Plateau implements ControlSystem  {
+public class Vehicle implements ControlSystem  {
 
     private final String vehicleType;
     private final String vehicleId;
     private Position position;
+    private Plateau plateau;
 
     private static final int MOVE_FORWARD_INCREMENT = 1;
 
     public Vehicle(String vehicleType, String vehicleId, int xValue, int yValue, char cardinalDirection) {
-        super(0, 5, 0, 5);
         this.vehicleType = vehicleType;
         this.vehicleId = vehicleId;
         this.position = new Position(xValue, yValue, cardinalDirection);
+
+        this.plateau = new Plateau(0, 5, 0, 5);
     }
 
     public Position getPosition() {
@@ -118,9 +120,9 @@ public class Vehicle extends Plateau implements ControlSystem  {
         boolean isWithinBounds = false;
 
         if (Objects.equals(axis, 'X')) {
-            isWithinBounds = newCoordinateValue >= getMinX() && newCoordinateValue <= getMaxX();
+            isWithinBounds = newCoordinateValue >= plateau.getMinX() && newCoordinateValue <= plateau.getMaxX();
         } else if (Objects.equals(axis, 'Y')) {
-            isWithinBounds = newCoordinateValue >= getMinY() && newCoordinateValue <= getMaxY();
+            isWithinBounds = newCoordinateValue >= plateau.getMinY() && newCoordinateValue <= plateau.getMaxY();
         } else {
             System.out.println("Invalid axis");
         }
