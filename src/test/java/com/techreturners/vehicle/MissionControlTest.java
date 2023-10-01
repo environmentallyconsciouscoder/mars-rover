@@ -44,10 +44,6 @@ public class MissionControlTest {
         Vehicle test = (Vehicle) deployments.get(vehicleId);
         char convertedChar = cardinalDirection.charAt(0);
 
-        System.out.println("test.getPosition().getXValue() " + test.getPosition().getXValue());
-        System.out.println("test.getPosition().getYValue() " + test.getPosition().getYValue());
-        System.out.println("test.getPosition().getCardinalDirection() " + test.getPosition().getCardinalDirection());
-
         assertEquals(Integer.parseInt(xValue), test.getPosition().getXValue());
         assertEquals(Integer.parseInt(yValue), test.getPosition().getYValue());
         assertEquals(convertedChar, test.getPosition().getCardinalDirection());

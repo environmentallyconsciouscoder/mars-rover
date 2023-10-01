@@ -66,7 +66,6 @@ public class MissionControl {
 
         while (!queue.isEmpty()) {
             char currentCardinalDirection = vehicle.getPosition().getCardinalDirection();
-            System.out.println("inside dataProcessor " + currentCardinalDirection);
 
             // 4) retrieves and removes the first element (head) from the queue
             String newDirection = queue.poll();
