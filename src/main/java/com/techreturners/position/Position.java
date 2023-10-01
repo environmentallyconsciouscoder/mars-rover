@@ -1,4 +1,4 @@
-package com.techreturners;
+package com.techreturners.position;
 
 public class Position {
     private char cardinalDirection;

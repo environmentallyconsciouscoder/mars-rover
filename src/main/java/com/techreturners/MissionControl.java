@@ -1,5 +1,7 @@
 package com.techreturners;
 
+import com.techreturners.vehicle.Vehicle;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;

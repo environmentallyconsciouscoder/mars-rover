@@ -1,4 +1,4 @@
-package com.techreturners;
+package com.techreturners.vehicle;
 
 interface ControlSystem {
     void turnRight(Vehicle vehicle, char cardinalDirection);

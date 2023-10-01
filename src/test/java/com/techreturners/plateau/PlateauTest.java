@@ -1,3 +1,5 @@
+package com.techreturners.plateau;
+
 import com.techreturners.plateau.Plateau;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,6 @@
-import com.techreturners.Position;
+package com.techreturners.position;
+
+import com.techreturners.position.Position;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

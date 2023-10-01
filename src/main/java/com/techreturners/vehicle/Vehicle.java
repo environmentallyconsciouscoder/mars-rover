@@ -1,6 +1,7 @@
-package com.techreturners;
+package com.techreturners.vehicle;
 
 import com.techreturners.plateau.Plateau;
+import com.techreturners.position.Position;
 
 import java.util.HashMap;
 import java.util.Objects;
