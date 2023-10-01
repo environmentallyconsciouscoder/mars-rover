@@ -38,9 +38,10 @@ public class Vehicle implements ControlSystem  {
     }
 
     @Override
-    public void turnRight(Vehicle vehicle, char cardinalDirection) {
+    public void turnRight(Vehicle vehicle) {
+        char currentDirection = vehicle.position.getCardinalDirection();
 
-        switch (cardinalDirection) {
+        switch (currentDirection) {
             case 'N' -> vehicle.position.setCardinalDirection('E');
             case 'E' -> vehicle.position.setCardinalDirection('S');
             case 'W' -> vehicle.position.setCardinalDirection('N');
@@ -51,8 +52,10 @@ public class Vehicle implements ControlSystem  {
     }
 
     @Override
-    public void turnLeft(Vehicle vehicle, char cardinalDirection) {
-        switch (cardinalDirection) {
+    public void turnLeft(Vehicle vehicle) {
+        char currentDirection = vehicle.position.getCardinalDirection();
+
+        switch (currentDirection) {
             case 'N' -> vehicle.position.setCardinalDirection('W');
             case 'E' -> vehicle.position.setCardinalDirection('N');
             case 'W' -> vehicle.position.setCardinalDirection('S');
@@ -62,12 +65,13 @@ public class Vehicle implements ControlSystem  {
     }
 
     @Override
-    public void moveForward(Vehicle vehicle, char cardinalDirection) {
+    public void moveForward(Vehicle vehicle) {
         int newCoordinateValue;
-        switch (cardinalDirection) {
+        char currentDirection = vehicle.position.getCardinalDirection();
+
+        switch (currentDirection) {
             case 'N' -> {
                 newCoordinateValue = vehicle.position.getYValue() + MOVE_FORWARD_INCREMENT;
-                System.out.println(newCoordinateValue);
 
                 if (isMoveWithinBounds(newCoordinateValue, 'Y') && !isThereCollision(vehicle, newCoordinateValue, 'Y')) {
                     vehicle.position.setYValue(newCoordinateValue);

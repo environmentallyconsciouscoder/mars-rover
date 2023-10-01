@@ -35,7 +35,7 @@ public class VehicleTest {
         char cardinalDirection = 'N';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.turnLeft(vehicle, 'N');
+        vehicle.turnLeft(vehicle);
         assertEquals('W', vehicle.getPosition().getCardinalDirection());
     }
 
@@ -45,10 +45,10 @@ public class VehicleTest {
         String vehicleId = "MR10";
         int xValue = 1;
         int yValue = 2;
-        char cardinalDirection = 'N';
+        char cardinalDirection = 'E';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.turnLeft(vehicle, 'E');
+        vehicle.turnLeft(vehicle);
         assertEquals('N', vehicle.getPosition().getCardinalDirection());
     }
 
@@ -58,10 +58,10 @@ public class VehicleTest {
         String vehicleId = "MR10";
         int xValue = 1;
         int yValue = 2;
-        char cardinalDirection = 'N';
+        char cardinalDirection = 'W';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.turnLeft(vehicle, 'W');
+        vehicle.turnLeft(vehicle);
         assertEquals('S', vehicle.getPosition().getCardinalDirection());
     }
 
@@ -71,10 +71,10 @@ public class VehicleTest {
         String vehicleId = "MR10";
         int xValue = 1;
         int yValue = 2;
-        char cardinalDirection = 'N';
+        char cardinalDirection = 'S';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.turnLeft(vehicle, 'S');
+        vehicle.turnLeft(vehicle);
         assertEquals('E', vehicle.getPosition().getCardinalDirection());
     }
 
@@ -88,7 +88,7 @@ public class VehicleTest {
         char cardinalDirection = 'N';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.turnRight(vehicle, 'N');
+        vehicle.turnRight(vehicle);
         assertEquals('E', vehicle.getPosition().getCardinalDirection());
     }
 
@@ -98,10 +98,10 @@ public class VehicleTest {
         String vehicleId = "MR10";
         int xValue = 1;
         int yValue = 2;
-        char cardinalDirection = 'N';
+        char cardinalDirection = 'E';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.turnRight(vehicle, 'E');
+        vehicle.turnRight(vehicle);
         assertEquals('S', vehicle.getPosition().getCardinalDirection());
     }
 
@@ -111,10 +111,10 @@ public class VehicleTest {
         String vehicleId = "MR10";
         int xValue = 1;
         int yValue = 2;
-        char cardinalDirection = 'N';
+        char cardinalDirection = 'W';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.turnRight(vehicle, 'W');
+        vehicle.turnRight(vehicle);
         assertEquals('N', vehicle.getPosition().getCardinalDirection());
     }
 
@@ -124,10 +124,10 @@ public class VehicleTest {
         String vehicleId = "MR10";
         int xValue = 1;
         int yValue = 2;
-        char cardinalDirection = 'N';
+        char cardinalDirection = 'S';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.turnRight(vehicle, 'S');
+        vehicle.turnRight(vehicle);
         assertEquals('W', vehicle.getPosition().getCardinalDirection());
     }
 
@@ -141,7 +141,7 @@ public class VehicleTest {
         char cardinalDirection = 'N';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.moveForward(vehicle, cardinalDirection);
+        vehicle.moveForward(vehicle);
         assertEquals(3, vehicle.getPosition().getYValue());
     }
 
@@ -154,7 +154,7 @@ public class VehicleTest {
         char cardinalDirection = 'E';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.moveForward(vehicle, cardinalDirection);
+        vehicle.moveForward(vehicle);
         assertEquals(2, vehicle.getPosition().getXValue());
     }
 
@@ -167,7 +167,7 @@ public class VehicleTest {
         char cardinalDirection = 'W';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.moveForward(vehicle, cardinalDirection);
+        vehicle.moveForward(vehicle);
         assertEquals(0, vehicle.getPosition().getXValue());
     }
 
@@ -180,7 +180,7 @@ public class VehicleTest {
         char cardinalDirection = 'S';
 
         Vehicle vehicle = new Vehicle(vehicleType, vehicleId, xValue, yValue, cardinalDirection);
-        vehicle.moveForward(vehicle, cardinalDirection);
+        vehicle.moveForward(vehicle);
         assertEquals(1, vehicle.getPosition().getYValue());
     }
 

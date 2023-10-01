@@ -1,9 +1,11 @@
 package com.techreturners.vehicle;
 
 interface ControlSystem {
-    void turnRight(Vehicle vehicle, char cardinalDirection);
-    void turnLeft(Vehicle vehicle, char cardinalDirection);
-    void moveForward(Vehicle vehicle, char cardinalDirection);
+    void turnRight(Vehicle vehicle);
+
+    void turnLeft(Vehicle vehicle);
+
+    void moveForward(Vehicle vehicle);
 
     boolean isMoveWithinBounds(int newCoordinateValue, char axis);
 

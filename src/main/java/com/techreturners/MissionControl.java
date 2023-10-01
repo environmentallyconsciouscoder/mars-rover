@@ -66,6 +66,7 @@ public class MissionControl {
 
         while (!queue.isEmpty()) {
             char currentCardinalDirection = vehicle.getPosition().getCardinalDirection();
+            System.out.println("inside dataProcessor " + currentCardinalDirection);
 
             // 4) retrieves and removes the first element (head) from the queue
             String newDirection = queue.poll();
@@ -80,9 +81,9 @@ public class MissionControl {
     // 5) check the commands
     private void checkCommands(String newDirection, Vehicle vehicle, char currentCardinalDirection) {
         switch (newDirection) {
-            case "M" -> vehicle.moveForward(vehicle, currentCardinalDirection);
-            case "L" -> vehicle.turnLeft(vehicle, currentCardinalDirection);
-            case "R" -> vehicle.turnRight(vehicle, currentCardinalDirection);
+            case "M" -> vehicle.moveForward(vehicle);
+            case "L" -> vehicle.turnLeft(vehicle);
+            case "R" -> vehicle.turnRight(vehicle);
             default -> System.out.println("newDirection is not valid");
         }
     }
